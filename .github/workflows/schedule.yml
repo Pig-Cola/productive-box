@@ -3,8 +3,18 @@ on:
   push:
     branches:
       - master
-  # schedule:
-  #   - cron: "0 0 * * *"
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: 'just test'
+        type: choice
+        options:
+          - 'just test 1'
+          - 'just test 2'
+        default: 'just test 1'
+        required: false
 jobs:
   update-gist:
     runs-on: ubuntu-latest
